@@ -11,7 +11,7 @@ Latest release: [![Maven Central](https://maven-badges.herokuapp.com/maven-centr
 
 ##### SBT users
 ```scala
-libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.0"
+libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.1"
 ```
 
 ##### Maven users
@@ -19,7 +19,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.0"
 <dependency>
   <groupId>org.pmml4s</groupId>
   <artifactId>pmml4s-spark_${scala.version}</artifactId>
-  <version>0.9.0</version>
+  <version>0.9.1</version>
 </dependency>
 ```
 

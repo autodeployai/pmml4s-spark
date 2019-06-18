@@ -1,6 +1,6 @@
 name := "pmml4s-spark"
 
-version := "0.9.0"
+version := "0.9.1"
 
 organization := "org.pmml4s"
 
@@ -20,7 +20,7 @@ scalacOptions in(Compile, doc) := Seq("-no-link-warnings")
 
 libraryDependencies ++= {
   Seq(
-    "org.pmml4s" %% "pmml4s" % "0.9.0",
+    "org.pmml4s" %% "pmml4s" % "0.9.1",
     "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test"
   )
