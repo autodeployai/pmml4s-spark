@@ -20,7 +20,7 @@ scalacOptions in(Compile, doc) := Seq("-no-link-warnings")
 
 libraryDependencies ++= {
   Seq(
-    "org.pmml4s" %% "pmml4s" % "0.9.1",
+    "org.pmml4s" %% "pmml4s" % "0.9.2-SNAPSHOT",
     "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test"
   )
@@ -39,6 +39,12 @@ crossScalaVersions := Seq("2.12.8", "2.11.12")
 publishMavenStyle := true
 
 useGpg := true
+
+// set overwrite to true for snapshot
+publishConfiguration := publishConfiguration.value.withOverwrite(isSnapshot.value)
+com.typesafe.sbt.pgp.PgpKeys.publishSignedConfiguration := com.typesafe.sbt.pgp.PgpKeys.publishSignedConfiguration.value.withOverwrite(isSnapshot.value)
+publishLocalConfiguration := publishLocalConfiguration.value.withOverwrite(isSnapshot.value)
+com.typesafe.sbt.pgp.PgpKeys.publishLocalSignedConfiguration := com.typesafe.sbt.pgp.PgpKeys.publishLocalSignedConfiguration.value.withOverwrite(isSnapshot.value)
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
