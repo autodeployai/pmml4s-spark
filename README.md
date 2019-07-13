@@ -1,8 +1,11 @@
 # PMML4S-Spark
-_PMML4S-Spark_ is a Spark transformer takes in PMML (Predictive Model Markup Language).
+_PMML4S-Spark_ is a PMML (Predictive Model Markup Language) scoring library for Spark as SparkML Transformer.
 
 ## Features
-_PMML4S-Spark_ is a Spark wrapper of _PMML4S_, you can see [PMML4S](https://github.com/autodeployai/pmml4s) for details.
+_PMML4S-Spark_ is the Spark wrapper of _PMML4S_, you can see [PMML4S](https://github.com/autodeployai/pmml4s) for details.
+
+## Prerequisites
+ - Spark >= 2.0.0
 
 ## Installation
 _PMML4S-Spark_ is available from maven central.
@@ -11,7 +14,7 @@ Latest release: [![Maven Central](https://maven-badges.herokuapp.com/maven-centr
 
 ##### SBT users
 ```scala
-libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.1"
+libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.2"
 ```
 
 ##### Maven users
@@ -19,7 +22,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.1"
 <dependency>
   <groupId>org.pmml4s</groupId>
   <artifactId>pmml4s-spark_${scala.version}</artifactId>
-  <version>0.9.1</version>
+  <version>0.9.2</version>
 </dependency>
 ```
 

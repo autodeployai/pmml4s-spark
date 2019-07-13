@@ -5,3 +5,4 @@
 /.settings/
 /.project
 **/.DS_Store
+/pmml4s-spark.iml
