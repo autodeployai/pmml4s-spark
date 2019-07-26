@@ -34,8 +34,15 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.2"
     import org.pmml4s.model.Model
     import org.pmml4s.spark.ScoreModel
 
-    // The main constructor accepts a Model, and there are other help methods accept different sources.
-    val scoreModel = ScoreModel(Model(Source.fromURL(new java.net.URL("http://dmg.org/pmml/pmml_examples/KNIME_PMML_4.1_Examples/single_iris_dectree.xml"))))
+    // The main constructor accepts an object of org.pmml4s.model.Model
+    val model = ScoreModel(Model(Source.fromURL(new java.net.URL("http://dmg.org/pmml/pmml_examples/KNIME_PMML_4.1_Examples/single_iris_dectree.xml"))))
+    ```
+    or
+    ```scala
+    import org.pmml4s.spark.ScoreModel
+    
+    // load model from those help methods, e.g. pathname, file object, a string, an array of bytes, or an input stream.
+    val model = ScoreModel.fromFile("single_iris_dectree.xml")
     ```
 
 2. Call `transform(dataset)` to run a batch score against an input dataset.
@@ -47,7 +54,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.2"
       options(Map("header" -> "true", "inferSchema" -> "true")).
       load("Iris.csv")
  
-    val scoreDf = scoreModel.transform(df)
+    val scoreDf = model.transform(df)
     scala> scoreDf.show(5)
     +------------+-----------+------------+-----------+-----------+--------------+-----------+-----------------------+---------------------------+--------------------------+-------+
     |sepal_length|sepal_width|petal_length|petal_width|      class|PredictedValue|Probability|Probability_Iris-setosa|Probability_Iris-versicolor|Probability_Iris-virginica|Node_ID|
