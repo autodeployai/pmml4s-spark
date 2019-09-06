@@ -49,7 +49,7 @@ class ScoreModelTest extends FunSuite {
       setPrependInputs(false).
       transform(df)
     assert(scoreDf.schema.size === 6)
-    assert(scoreDf.schema.fields(0).name === "PredictedValue")
+    assert(scoreDf.schema.fields(0).name === "predicted_class")
     scoreDf.printSchema()
     scoreDf.show
   }
