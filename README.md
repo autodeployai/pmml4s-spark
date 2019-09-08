@@ -68,8 +68,17 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.3"
     only showing top 5 rows
     ```
 
-## Use in PySpark
-See the [PyPMML-Spark](https://github.com/autodeployai/pypmml-spark) project.
+## Use PMML in PySpark
+See the [PyPMML-Spark](https://github.com/autodeployai/pypmml-spark) project. _PyPMML-Spark_ is a Python PMML scoring library for PySpark as SparkML Transformer, it really is the Python API for PMML4s-Spark.
+
+## Use PMML in Scala or Java
+See the [PMML4S](https://github.com/autodeployai/pmml4s) project. _PMML4S_ a PMML scoring library for Scala. It provides both Scala and Java Evaluator API for PMML.
+
+## Use PMML in Python
+See the [PyPMML](https://github.com/autodeployai/pypmml) project. _PyPMML_ is a Python PMML scoring library, it really is the Python API for PMML4S.
+
+## Deploy PMML as REST API
+See the [DaaS](https://www.autodeploy.ai/) system that deploys AI & ML models in production at scale on Kubernetes.
 
 ## Support
 If you have any questions about the _PMML4S-Spark_ library, please open issues on this repository.
