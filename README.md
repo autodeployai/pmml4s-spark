@@ -26,7 +26,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.3"
 </dependency>
 ```
 
-## Usage
+## Use PMML for Spark in Scala
 1. Load model.
 
     ```scala
@@ -66,6 +66,32 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.3"
     |         5.0|        3.6|         1.4|        0.2|Iris-setosa|    Iris-setosa|        1.0|                    1.0|                        0.0|                       0.0|      1|
     +------------+-----------+------------+-----------+-----------+---------------+-----------+-----------------------+---------------------------+--------------------------+-------+
     only showing top 5 rows
+    ```
+    
+## Use PMML for Spark in Java
+1. Load model.
+
+    ```java
+    import org.pmml4s.spark.ScoreModel;
+    
+    // load model from those help methods, e.g. pathname, file object, a string, an array of bytes, or an input stream.
+    ScoreModel model = ScoreModel.fromFile("single_iris_dectree.xml");
+    ```
+
+2. Call `transform(dataset)` to run a batch score against an input dataset.
+
+    ```java
+    import org.apache.spark.sql.Dataset;
+ 
+    // The data is from http://dmg.org/pmml/pmml_examples/Iris.csv
+    Dataset<?> df = spark.read().
+       format("csv").
+       option("header", "true").
+       option("inferSchema", "true").
+       load("Iris.csv"); 
+   
+    Dataset<?> scoreDf = model.transform(df);
+    scoreDf.show(5);
     ```
 
 ## Use PMML in PySpark

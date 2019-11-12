@@ -22,7 +22,8 @@ libraryDependencies ++= {
   Seq(
     "org.pmml4s" %% "pmml4s" % "0.9.3",
     "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided",
-    "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+    "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+    "junit" % "junit" % "4.12" % "test"
   )
 }
 

@@ -43,7 +43,7 @@ class ScoreModelTest extends FunSuite {
     scoreDf.show
   }
 
-  test("Score a model in Spark with appendOutputs=false") {
+  test("Score a model in Spark with prependInputs=false") {
     val model = ScoreModel.fromFile("src/test/resources/models/single_iris_dectree.xml")
     val scoreDf = model.
       setPrependInputs(false).
@@ -54,7 +54,7 @@ class ScoreModelTest extends FunSuite {
     scoreDf.show
   }
 
-  test("Score a model in Spark with appendOutputs=false and predictionCol=prediction") {
+  test("Score a model in Spark with prependInputs=false and predictionCol=prediction") {
     val model = ScoreModel.fromFile("src/test/resources/models/single_iris_dectree.xml")
     val scoreDf = model.
       setPrependInputs(false).
