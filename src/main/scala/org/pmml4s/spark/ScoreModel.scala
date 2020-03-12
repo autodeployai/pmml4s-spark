@@ -53,7 +53,7 @@ class ScoreModel(
 
   override def transform(dataset: Dataset[_]): DataFrame = {
     val inputSchema = model.inputSchema
-    val nameToIndex = dataset.schema.names.zipWithIndex.toMap
+    val nameToIndex = dataset.schema.fieldNames.zipWithIndex.toMap
     val indexWithDataType = inputSchema.map(x => (nameToIndex.get(x.name), x.dataType))
 
     val rdd = dataset.toDF.rdd.mapPartitions(x => {
