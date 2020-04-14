@@ -14,7 +14,7 @@ Latest release: [![Maven Central](https://maven-badges.herokuapp.com/maven-centr
 
 ##### SBT users
 ```scala
-libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.4"
+libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.5"
 ```
 
 ##### Maven users
@@ -22,7 +22,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.4"
 <dependency>
   <groupId>org.pmml4s</groupId>
   <artifactId>pmml4s-spark_${scala.version}</artifactId>
-  <version>0.9.4</version>
+  <version>0.9.5</version>
 </dependency>
 ```
 
@@ -98,7 +98,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.4"
 See the [PyPMML-Spark](https://github.com/autodeployai/pypmml-spark) project. _PyPMML-Spark_ is a Python PMML scoring library for PySpark as SparkML Transformer, it really is the Python API for PMML4s-Spark.
 
 ## Use PMML in Scala or Java
-See the [PMML4S](https://github.com/autodeployai/pmml4s) project. _PMML4S_ a PMML scoring library for Scala. It provides both Scala and Java Evaluator API for PMML.
+See the [PMML4S](https://github.com/autodeployai/pmml4s) project. _PMML4S_ is a PMML scoring library for Scala. It provides both Scala and Java Evaluator API for PMML.
 
 ## Use PMML in Python
 See the [PyPMML](https://github.com/autodeployai/pypmml) project. _PyPMML_ is a Python PMML scoring library, it really is the Python API for PMML4S.
