@@ -104,7 +104,10 @@ See the [PMML4S](https://github.com/autodeployai/pmml4s) project. _PMML4S_ is a 
 See the [PyPMML](https://github.com/autodeployai/pypmml) project. _PyPMML_ is a Python PMML scoring library, it really is the Python API for PMML4S.
 
 ## Deploy PMML as REST API
-See the [DaaS](https://www.autodeploy.ai/) system that deploys AI & ML models in production at scale on Kubernetes.
+See the [AI-Serving](https://github.com/autodeployai/ai-serving) project. _AI-Serving_ is serving AI/ML models in the open standard formats PMML and ONNX with both HTTP and gRPC endpoints.
+
+## Deploy and Manage AI/ML models at scale
+See the [DaaS](https://www.autodeploy.ai/) system that deploys AI/ML models in production at scale on Kubernetes.
 
 ## Support
 If you have any questions about the _PMML4S-Spark_ library, please open issues on this repository.
