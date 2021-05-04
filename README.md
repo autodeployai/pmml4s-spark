@@ -8,13 +8,13 @@ _PMML4S-Spark_ is the Spark wrapper of _PMML4S_, you can see [PMML4S](https://gi
  - Spark >= 2.0.0
 
 ## Installation
-_PMML4S-Spark_ is available from maven central.
+[_PMML4S-Spark_](https://mvnrepository.com/artifact/org.pmml4s/pmml4s-spark) is available from the maven central.
 
 Latest release: [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.pmml4s/pmml4s-spark_2.12/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.pmml4s/pmml4s-spark_2.12)
 
 ##### SBT users
 ```scala
-libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.9"
+libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % pmml4sSparkVersion
 ```
 
 ##### Maven users
@@ -22,7 +22,7 @@ libraryDependencies += "org.pmml4s" %%  "pmml4s-spark" % "0.9.9"
 <dependency>
   <groupId>org.pmml4s</groupId>
   <artifactId>pmml4s-spark_${scala.version}</artifactId>
-  <version>0.9.9</version>
+  <version>${pmml4s-spark.version}</version>
 </dependency>
 ```
 
