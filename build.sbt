@@ -20,7 +20,7 @@ scalacOptions in(Compile, doc) := Seq("-no-link-warnings")
 
 libraryDependencies ++= {
   Seq(
-    "org.pmml4s" %% "pmml4s" % "0.9.11",
+    "org.pmml4s" %% "pmml4s" % "0.9.14",
     "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test",
     "junit" % "junit" % "4.12" % "test"
