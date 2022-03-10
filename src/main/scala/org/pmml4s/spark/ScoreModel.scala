@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 AutoDeploy AI
+ * Copyright (c) 2017-2022 AutoDeploy AI
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,11 +51,15 @@ class ScoreModel(
   /** @group setParam */
   def setPredictionCol(value: String): this.type = set(predictionCol, value)
 
+  /** @group setParam */
+  def setSupplementOutput(value: Boolean): this.type = set(supplementOutput, value)
+
   override def transform(dataset: Dataset[_]): DataFrame = {
     val inputSchema = model.inputSchema
     val nameToIndex = dataset.schema.fieldNames.zipWithIndex.toMap
     val indexWithDataType = inputSchema.map(x => (nameToIndex.get(x.name), x.dataType))
 
+    model.setSupplementOutput($(supplementOutput))
     val rdd = dataset.toDF.rdd.mapPartitions(x => {
       for (row <- x) yield {
         val values = indexWithDataType.map(y => y._1.map(index => Utils.toVal(row.get(index), y._2)).orNull)
@@ -75,6 +79,8 @@ class ScoreModel(
   override def copy(extra: ParamMap): Transformer = defaultCopy(extra)
 
   override def transformSchema(schema: StructType): StructType = {
+    model.setSupplementOutput($(supplementOutput))
+
     // check if predictionCol is set
     val namesMap: Map[String, String] = if (isSet(predictionCol)) {
       val field = model.outputFields.find(x => x.feature == ResultFeature.predictedValue)
@@ -148,4 +154,16 @@ trait ScoreParams extends Params {
 
   /** @group getParam */
   final def getPredictionCol: String = $(predictionCol)
+
+  /**
+   * Param for whether to return those predefined output fields not exist in the Output element explicitly.
+   *
+   * @group param
+   */
+  final val supplementOutput: BooleanParam = new BooleanParam(this, "supplementOutput", "whether to return those predefined output fields not exist in the Output element explicitly.")
+
+  setDefault(supplementOutput, false)
+
+  /** @group getParam */
+  final def getSupplementOutput: Boolean = $(supplementOutput)
 }

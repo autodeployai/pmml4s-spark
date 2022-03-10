@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2017-2019 AutoDeploy AI
+ * Copyright (c) 2017-2022 AutoDeploy AI
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,6 +59,29 @@ class ScoreModelTest extends FunSuite {
     val scoreDf = model.
       setPrependInputs(false).
       setPredictionCol("prediction").
+      transform(df)
+    assert(scoreDf.schema.size === 6)
+    assert(scoreDf.schema.fields(0).name === "prediction")
+    scoreDf.printSchema()
+    scoreDf.show
+  }
+
+  test("Score a model with output in Spark with default settings") {
+    val model = ScoreModel.fromFile("src/test/resources/models/single_iris_dectree_output.xml")
+    val scoreDf = model.
+      setPrependInputs(false).
+      transform(df)
+    assert(scoreDf.schema.size === 1)
+    assert(scoreDf.schema.fields(0).name === "prediction")
+    scoreDf.printSchema()
+    scoreDf.show
+  }
+
+  test("Score a model with output in Spark with supplementOutput=true") {
+    val model = ScoreModel.fromFile("src/test/resources/models/single_iris_dectree_output.xml")
+    val scoreDf = model.
+      setPrependInputs(false).
+      setSupplementOutput(true).
       transform(df)
     assert(scoreDf.schema.size === 6)
     assert(scoreDf.schema.fields(0).name === "prediction")
