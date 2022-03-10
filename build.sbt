@@ -1,6 +1,6 @@
 name := "pmml4s-spark"
 
-version := "0.9.11"
+version := "0.9.14"
 
 organization := "org.pmml4s"
 
