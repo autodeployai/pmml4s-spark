@@ -22,12 +22,15 @@ scalacOptions := Seq("-feature", "-language:_", "-unchecked", "-deprecation", "-
 
 scalacOptions in(Compile, doc) := Seq("-no-link-warnings")
 
+crossPaths := false
+
 libraryDependencies ++= {
   Seq(
     "org.pmml4s" %% "pmml4s" % "1.0.1",
     "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-    "junit" % "junit" % "4.12" % "test"
+    "junit" % "junit" % "4.12" % "test",
+    "com.novocode" % "junit-interface" % "0.11" % "test"
   )
 }
 
