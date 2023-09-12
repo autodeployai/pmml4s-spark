@@ -43,7 +43,6 @@ public class JScoreModelTest {
         assertEquals("predicted_class", scoreDf.schema().fields()[5].name());
         scoreDf.printSchema();
         scoreDf.show();
-        fail();
     }
 
     @Test
