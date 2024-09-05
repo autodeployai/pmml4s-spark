@@ -22,8 +22,6 @@ scalacOptions := Seq("-feature", "-language:_", "-unchecked", "-deprecation", "-
 
 scalacOptions in(Compile, doc) := Seq("-no-link-warnings")
 
-crossPaths := false
-
 libraryDependencies ++= {
   (CrossVersion.partialVersion(scalaVersion.value) match {
     case Some((2, scalaMajor)) if scalaMajor <= 11 =>
