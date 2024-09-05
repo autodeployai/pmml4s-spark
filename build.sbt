@@ -9,7 +9,7 @@ inThisBuild(List(
       "scorebot",
       "Score Bot",
       "scorebot@outlook.com",
-      url("https://pmml4s.org")
+      url("https://github.com/scorebot")
     )
   )
 ))
@@ -25,17 +25,21 @@ scalacOptions in(Compile, doc) := Seq("-no-link-warnings")
 crossPaths := false
 
 libraryDependencies ++= {
-  Seq(
-    "org.pmml4s" %% "pmml4s" % "1.0.1",
-    "org.apache.spark" %% "spark-mllib" % "2.4.3" % "provided",
-    "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-    "junit" % "junit" % "4.12" % "test",
+  (CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, scalaMajor)) if scalaMajor <= 11 =>
+      Some("org.apache.spark" %% "spark-mllib" % "2.4.8" % "provided")
+    case _ =>
+      Some("org.apache.spark" %% "spark-mllib" % "3.5.2" % "provided")
+  }).toSeq ++ Seq(
+    "org.pmml4s" %% "pmml4s" % "1.0.2",
+    "org.scalatest" %% "scalatest" % "3.2.15" % "test",
+    "junit" % "junit" % "4.13.2" % "test",
     "com.novocode" % "junit-interface" % "0.11" % "test"
   )
 }
 
-scalaVersion := "2.12.8"
+scalaVersion := "2.12.15"
 
 // publishing
 
-crossScalaVersions := Seq("2.12.8", "2.11.12")
+crossScalaVersions := Seq("2.12.15", "2.11.12", "2.13.8")

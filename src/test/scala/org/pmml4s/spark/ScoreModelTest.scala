@@ -13,18 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.pmml4s.pmml4spark
+package org.pmml4s.spark
 
 import org.apache.spark.sql.SparkSession
-import org.pmml4s.spark.ScoreModel
 import org.scalactic.TolerantNumerics
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.AnyFunSuite
 
 /**
  * Iris.csv is from: http://dmg.org/pmml/pmml_examples/Iris.csv
  * single_iris_dectree.xml is from: http://dmg.org/pmml/pmml_examples/KNIME_PMML_4.1_Examples/single_iris_dectree.xml
  */
-class ScoreModelTest extends FunSuite {
+class ScoreModelTest extends AnyFunSuite {
 
   implicit val doubleEquality = TolerantNumerics.tolerantDoubleEquality(0.000001)
 
