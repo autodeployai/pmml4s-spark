@@ -16,13 +16,12 @@
 package org.pmml4s.spark
 
 import java.io.{File, InputStream}
-
 import org.apache.spark.ml.Transformer
 import org.apache.spark.ml.param.{BooleanParam, Param, ParamMap, Params}
 import org.apache.spark.ml.util.Identifiable
 import org.apache.spark.sql.types.{StructField, StructType}
 import org.apache.spark.sql.{DataFrame, Dataset, Row}
-import org.pmml4s.data.Series
+import org.pmml4s.data.{DataVal, Series}
 import org.pmml4s.metadata.ResultFeature
 import org.pmml4s.model.Model
 import org.pmml4s.util.Utils
@@ -62,9 +61,9 @@ class ScoreModel(
     model.setSupplementOutput($(supplementOutput))
     val rdd = dataset.toDF.rdd.mapPartitions(x => {
       for (row <- x) yield {
-        val values = indexWithDataType.map(y => y._1.map(index => Utils.toVal(row.get(index), y._2)).orNull)
+        val values = indexWithDataType.map(y => y._1.map(index => Utils.toDataVal(row.get(index), y._2)).getOrElse(DataVal.NULL))
         val series = model.predict(Series.fromSeq(values))
-        val outRow = Row.fromSeq(series.toSeq)
+        val outRow = Row.fromSeq(series.asSeq)
         if ($(prependInputs)) {
           Row.merge(row, outRow)
         } else {
