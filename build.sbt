@@ -29,7 +29,7 @@ libraryDependencies ++= {
     case _ =>
       Some("org.apache.spark" %% "spark-mllib" % "3.5.2" % "provided")
   }).toSeq ++ Seq(
-    "org.pmml4s" %% "pmml4s" % "1.5.2",
+    "org.pmml4s" %% "pmml4s" % "1.5.3",
     "org.scalatest" %% "scalatest" % "3.2.15" % "test",
     "junit" % "junit" % "4.13.2" % "test",
     "com.novocode" % "junit-interface" % "0.11" % "test"
