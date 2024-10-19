@@ -1,7 +1,6 @@
 # PMML4S-Spark
 [![Build Status](https://github.com/autodeployai/pmml4s-spark/workflows/Release/badge.svg)](https://github.com/autodeployai/pmml4s-spark/actions)
-[![Maven Central](https://img.shields.io/maven-central/v/org.pmml4s/pmml4s-spark_2.12.svg)](https://mvnrepository.com/artifact/org.pmml4s/pmml4s-spark)
-
+[![pmml4s-spark Scala version support](https://index.scala-lang.org/autodeployai/pmml4s-spark/pmml4s-spark/latest-by-scala-version.svg?platform=jvm)](https://index.scala-lang.org/autodeployai/pmml4s-spark/pmml4s-spark)
 _PMML4S-Spark_ is a PMML (Predictive Model Markup Language) scoring library for Spark as SparkML Transformer.
 
 ## Features
